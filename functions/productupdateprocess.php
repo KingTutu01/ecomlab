@@ -106,7 +106,7 @@ if (isset($_POST['submit'])){
     if (count($errors) == 0){
 
 
-            $UploadProduct = UploadProduct($id, $pcat, $pbrand, $pname, $pprice, $pdesc, $productDetails['product_image'], $pkeyword);
+            $UploadProduct = UpdateProduct($id, $pcat, $pbrand, $pname, $pprice, $pdesc, $productDetails['product_image'], $pkeyword);
 
             if ($UploadProduct){
                 header("location: ../view/listproducts.php");
