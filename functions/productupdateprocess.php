@@ -79,7 +79,7 @@ if (isset($_POST['submit'])){
     if (count($errors) == 0){
         $Upload = move_uploaded_file($_FILES["pimg"]["tmp_name"], $target_file);
         if ($Upload){
-            $UploadProduct = UploadProduct_($id, $pcat, $pbrand, $pname, $pprice, $pdesc, $target_file, $pkeyword);
+            $UploadProduct = UpdateProduct($id, $pcat, $pbrand, $pname, $pprice, $pdesc, $target_file, $pkeyword);
 
             if ($UploadProduct){
                 header("location: ../view/listproducts.php");
@@ -106,7 +106,7 @@ if (isset($_POST['submit'])){
     if (count($errors) == 0){
 
 
-            $UploadProduct = UploadProduct_($id, $pcat, $pbrand, $pname, $pprice, $pdesc, $productDetails['product_image'], $pkeyword);
+            $UploadProduct = UploadProduct($id, $pcat, $pbrand, $pname, $pprice, $pdesc, $productDetails['product_image'], $pkeyword);
 
             if ($UploadProduct){
                 header("location: ../view/listproducts.php");

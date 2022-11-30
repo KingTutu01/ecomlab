@@ -14,18 +14,18 @@ if(isset($_GET['status'])){
         $AddOrder = AddOrder_fxn($cid, $inv_no, $ord_date, $ord_stat);
         if($AddOrder){
             $recent = RecentOrder_fxn();
-            $cart = DisplayCart_fxn($cid);
+            $cart = DisplayCrt_fxn($cid);
             foreach($cart as $key => $value){
 
                 $addDetails = addOrderDetails_fxn($recent['recent'], $key, $value[1]);
             }
 
-            $amt = cartValue_fn($cid);
+            $amt = cartValue_fxn($cid);
             $currencu = "USD";
             $AddPayment = addPayment_fxn($amt['Result'], $cid, $recent['recent'], "USD", $ord_date);
 
             if($AddPayment){
-                $delete = DeleteWleCart_fn($cid);
+                $delete = DeleteWCart_fxn($cid);
                 if($delete){
                     header("location: ../view/payment_success.php?ord_id=" .$recent['recent']);
                 }

@@ -18,7 +18,7 @@ function GetRealIpAddr(){
 session_start();
 if (isset($_SESSION['customer_id'])){
     $cid = $_SESSION['customer_id'];
-    $UpdateCart = UpdateCrt_fn($cid, $pid, $qty);
+    $UpdateCart = updateCart_fxn($cid, $pid, $qty);
     if($UpdateCart){
         header("location: ../view/cart.php");
     }else{
@@ -26,7 +26,7 @@ if (isset($_SESSION['customer_id'])){
     }
 }else{
     $ipadd = GetRealIpAddr();
-    $UpdateCart = UpdateCrtNull_fn($ipadd, $pid, $qty);
+    $UpdateCart = updateCartNull_fxn($ipadd, $pid, $qty);
     if($UpdateCart){
         header("location: ../view/cart.php");
     }else{

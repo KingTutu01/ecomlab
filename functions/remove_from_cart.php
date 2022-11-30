@@ -28,7 +28,7 @@ if(isset($_GET['id'])){
             echo "something went wrong";
         }
     }else{
-       $delete = DeleteCartNll_fxn($ipadd,$pid);
+       $delete = deleteCart_fxn($ipadd,$pid);
         if($delete){
             header("location: ../view/cart.php");
         }else{
